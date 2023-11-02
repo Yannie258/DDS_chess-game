@@ -6,3 +6,15 @@ body {
 a {
   color: #00B7FF;
 }
+.chess-board{
+  width: 50rem;
+  height: 50rem;
+}
+
+.dark-blue{
+  background-color: #00B7FF;
+}
+
+.light-blue{
+  background-color:aquamarine;
+}
