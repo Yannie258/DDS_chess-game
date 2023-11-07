@@ -1,0 +1,114 @@
+:root {
+  --square-size: calc((100vw - 100px) / 8); /* 减去一些值作为外边距 */
+  --board-size: calc(var(--square-size) * 8); /* 计算整个棋盘的尺寸 */
+}
+
+@media (orientation: landscape) {
+  :root {
+    --square-size: calc((100vh - 100px) / 8);
+    --board-size: calc(var(--square-size) * 8);
+  }
+}
+
+table {
+  width: var(--board-size);
+  height: var(--board-size);
+  margin: 50px auto; /* 提供一些外边距，避免紧贴屏幕边缘 */
+  border-collapse: collapse;
+}
+
+td.chess-square {
+  width: var(--square-size);
+  height: var(--square-size);
+}
+
+/* 确保使用了 border-box */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+
+/* 设置body元素，使其子内容居中 */
+body {
+  display: flex; /* 使用flexbox布局 */
+  flex-direction: column; /* 子元素垂直排列 */
+  align-items: center; /* 子元素水平居中 */
+  justify-content: center; /* 子元素垂直居中 */
+  min-height: 100vh; /* 最小高度为视口高度，确保即使内容少时也能居中 */
+  margin: 0; /* 移除默认的margin */
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header {
+  width: 100%;
+  background: #20B2AA;
+  color: #fff;
+  padding: 1rem 0;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+
+nav ul li {
+  margin: 0 1rem;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+main {
+  flex: 1;
+  padding: 2rem;
+}
+
+footer {
+  width: 100%;
+  background: #20B2AA;
+  color: white;
+  text-align: center;
+  padding: 1rem 0;
+}
+
+/* 如果有其他容器包裹内容，也应设置为居中 */
+.container { /* 假设您有一个类名为'container'的元素包裹所有内容 */
+  width: 1080px; /* 或者您希望的宽度 */
+  margin: 0 auto; /* 上下保持0，左右自动调整以居中 */
+}
+
+/* 基础棋盘样式 */
+table {
+  border-collapse: collapse;
+  margin: 20px 0; /* 为棋盘上下添加些许空间 */
+}
+
+/* 棋盘单元格样式 */
+td.chess-square {
+  border: 0; /* 移除边框 */
+  text-align: center; /* 确保文本居中 */
+  vertical-align: middle; /* 垂直居中 */
+}
+
+
+/* 棋盘行样式 */
+tr:nth-child(odd) td:nth-child(even),
+tr:nth-child(even) td:nth-child(odd) {
+  background-color: #20B2AA; /* 为棋盘的一个颜色设置深色 */
+}
+
+tr:nth-child(odd) td:nth-child(odd),
+tr:nth-child(even) td:nth-child(even) {
+  background-color: #ADD8E6; /* 为棋盘的另一个颜色设置浅色 */
+}
